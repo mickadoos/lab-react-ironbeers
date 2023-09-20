@@ -1,20 +1,22 @@
-import React from 'react'
+import React from "react";
+import { Link } from "react-router-dom";
 
-const BeerCard = ({ beersPng, title }) => {
+const BeerCard = ({ beer }) => {
   return (
-    <div className="col">
-    <div className="card w-75" style={{ width: "18rem" }}>
-      <img src={beersPng} className="card-img-top" alt="..." />
-      <div className="card-body">
-        <h5 className="card-title">{title}</h5>
-        <p className="card-text">
-          Some quick example text to build on the card title and make up
-          the bulk of the card's content.
-        </p>
+    <div className="row border">
+      <div className="col-3">
+        <img className="w-100" src={beer.image_url} alt={beer.name} />
+      </div>
+      <div className="col-9">
+        <p className="fs-1">{beer.name}</p>
+        <p className="fs-3 text-muted">{beer.tagline}</p>
+        <p className="fs-6"><span className="fw-bold">Created by: </span>{beer.contributed_by}</p>
+        <Link to={`/beers/${beer._id}`}>
+        <button href="a" className="btn btn-primary">Beer Details</button>
+        </Link>
       </div>
     </div>
-  </div>
-  )
-}
+  );
+};
 
-export default BeerCard
+export default BeerCard;
