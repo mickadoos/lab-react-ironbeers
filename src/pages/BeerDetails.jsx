@@ -18,8 +18,23 @@ const BeerDetails = () => {
     }
   }
 
+  async function fetchRandomBeer() {
+    try {
+      const beerResponse = await axios.get(
+        `https://ih-beers-api2.herokuapp.com/beers/random`
+      );
+      setBeerFound(beerResponse.data);
+    } catch (error) {
+      console.error("Error fetching one random beer data: ", error);
+    }
+  }
+
   useEffect(() => {
-    fetchBeer();
+    if (beerId) {
+      fetchBeer();
+    } else {
+      fetchRandomBeer();
+    }
   }, []);
 
   return (
@@ -36,9 +51,7 @@ const BeerDetails = () => {
               <li class="list-group-item">{beerFound.name}</li>
               <li class="list-group-item">{beerFound.tagline}</li>
               <li class="list-group-item">
-                <p class="card-text">
-                {beerFound.description}
-                </p>
+                <p class="card-text">{beerFound.description}</p>
               </li>
             </ul>
           </div>
