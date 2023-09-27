@@ -40,18 +40,18 @@ const BeerDetails = () => {
   return (
     <>
       {beerFound && (
-        <div class="card" style={{ width: "18rem" }}>
+        <div className="card" style={{ width: "18rem" }}>
           <img
             src={beerFound.image_url}
-            class="card-img-top"
+            className="card-img-top"
             alt={beerFound.name}
           />
-          <div class="card-body">
-            <ul class="list-group list-group-flush">
-              <li class="list-group-item">{beerFound.name}</li>
-              <li class="list-group-item">{beerFound.tagline}</li>
-              <li class="list-group-item">
-                <p class="card-text">{beerFound.description}</p>
+          <div className="card-body">
+            <ul className="list-group list-group-flush">
+              <li className="list-group-item">{beerFound.name}</li>
+              <li className="list-group-item">{beerFound.tagline}</li>
+              <li className="list-group-item">
+                <p className="card-text">{beerFound.description}</p>
               </li>
             </ul>
           </div>
